@@ -1,0 +1,417 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={Amazon RO Analytics},
+  pdfauthor={Elias Murcray},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{Amazon RO Analytics}
+\author{Elias Murcray}
+\date{2023-11-11}
+
+\begin{document}
+\maketitle
+
+\hypertarget{data-collection}{%
+\subsection{Data Collection}\label{data-collection}}
+
+Data was collected via survey on the Amazon Interns and New Grads
+Discord server. There was an original survey that involved manual entry,
+which was later merged with the new dataset from Google Forms.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{data }\OtherTok{=} \FunctionTok{read.csv}\NormalTok{(}\StringTok{"./Amazon RO Analytics {-} Responses.csv"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{data-cleaning}{%
+\subsection{Data Cleaning}\label{data-cleaning}}
+
+Due to the nature of merging two fragmented datasets, we need to clean
+the data.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Remove Data From Original Form}
+\NormalTok{data }\OtherTok{\textless{}{-}} \FunctionTok{subset}\NormalTok{(data, data}\SpecialCharTok{$}\NormalTok{Timestamp }\SpecialCharTok{!=} \StringTok{""} \SpecialCharTok{\&} \SpecialCharTok{!}\FunctionTok{is.na}\NormalTok{(data}\SpecialCharTok{$}\NormalTok{Timestamp))}
+\CommentTok{\# Trim trailing spaces in status from first input}
+\NormalTok{data}\SpecialCharTok{$}\NormalTok{Status }\OtherTok{\textless{}{-}} \FunctionTok{trimws}\NormalTok{(data}\SpecialCharTok{$}\NormalTok{Status)}
+\CommentTok{\# Remove participant if no portal specified}
+\NormalTok{data }\OtherTok{\textless{}{-}} \FunctionTok{subset}\NormalTok{(data, data}\SpecialCharTok{$}\NormalTok{Portal }\SpecialCharTok{!=} \StringTok{""} \SpecialCharTok{\&} \SpecialCharTok{!}\FunctionTok{is.na}\NormalTok{(data}\SpecialCharTok{$}\NormalTok{Portal))}
+\CommentTok{\# Clean orgs}
+\NormalTok{data}\SpecialCharTok{$}\NormalTok{Organization }\OtherTok{=} \FunctionTok{trimws}\NormalTok{(}\FunctionTok{tolower}\NormalTok{(data}\SpecialCharTok{$}\NormalTok{Organization))}
+\CommentTok{\# Remove the people putting just "AWS"}
+\NormalTok{data }\OtherTok{\textless{}{-}} \FunctionTok{subset}\NormalTok{(data, data}\SpecialCharTok{$}\NormalTok{Organization }\SpecialCharTok{!=} \StringTok{"aws"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{offer-frequency}{%
+\subsection{Offer Frequency}\label{offer-frequency}}
+
+\hypertarget{based-on-portal}{%
+\subsubsection{Based on Portal}\label{based-on-portal}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{table}\NormalTok{(data}\SpecialCharTok{$}\NormalTok{Status, data}\SpecialCharTok{$}\NormalTok{Portal)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##                
+##                 ASP ECT
+##   Offer           5   4
+##   Portal Update  18   0
+##   Waiting        82   3
+\end{verbatim}
+
+\hypertarget{between-orgs}{%
+\subsubsection{Between Orgs}\label{between-orgs}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{table}\NormalTok{(data}\SpecialCharTok{$}\NormalTok{Organization, data}\SpecialCharTok{$}\NormalTok{Status)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##                                                    
+##                                                     Offer Portal Update Waiting
+##   ads                                                   0             0       2
+##   ads (mads)                                            0             0       1
+##   advertising                                           0             0       1
+##   alexa                                                 1             1       2
+##   alexa - devices                                       0             0       1
+##   alexa comms                                           0             0       1
+##   alexa devices                                         0             0       1
+##   alexa shopping                                        0             0       1
+##   amazon connect                                        0             1       0
+##   amazon fashion                                        0             0       2
+##   amazon fresh                                          0             0       1
+##   amazon health services                                0             0       1
+##   amazon health services/ amazon pharmacy               0             0       1
+##   amazon kindle - spider org                            0             0       1
+##   ascs                                                  1             0       1
+##   aurora postgres                                       0             0       1
+##   aws - annapurna labs                                  1             0       0
+##   aws - dcs                                             0             0       1
+##   aws backup                                            1             0       0
+##   aws billing                                           0             1       3
+##   aws braket                                            0             2       0
+##   aws builder tools                                     0             1       0
+##   aws cloudwatch logs                                   0             0       1
+##   aws commerce platform                                 0             1       2
+##   aws connect                                           0             1       0
+##   aws crypto                                            0             0       1
+##   aws customer experience                               0             0       1
+##   aws cwl                                               0             0       1
+##   aws dx                                                0             0       1
+##   aws ec2                                               0             1       0
+##   aws ec2 core                                          1             0       0
+##   aws ec2 edge                                          0             0       1
+##   aws ec2 nitro core                                    0             0       1
+##   aws eks                                               0             1       0
+##   aws galaxy                                            0             0       1
+##   aws iot                                               0             0       3
+##   aws lambda                                            0             1       3
+##   aws marketplace                                       0             1       0
+##   aws opensearch ingestion                              0             0       1
+##   aws payments                                          0             1       1
+##   aws redshift                                          0             0       1
+##   aws region services                                   0             1       0
+##   aws s3                                                0             1       0
+##   aws s3g                                               0             0       1
+##   aws security                                          0             0       1
+##   aws ssm                                               0             0       1
+##   aws supply chain                                      0             0       1
+##   aws systems manager                                   0             0       1
+##   aws waf                                               0             0       1
+##   aws workflows (step functions)                        0             0       1
+##   aws wwso (solutions architect)                        0             0       1
+##   books (kindle content)                                0             0       1
+##   books org                                             0             0       1
+##   business data technologies                            0             0       1
+##   cia                                                   0             0       1
+##   consumer. stores                                      0             0       1
+##   cs fixed corp                                         0             0       1
+##   ctps                                                  0             0       1
+##   devices                                               2             0       3
+##   dia/dfa (redshift, quicksight, kafka, opensearch)     0             0       1
+##   finance                                               0             1       0
+##   gfs                                                   1             0       0
+##   gtmc                                                  0             0       1
+##   idk, team was pies                                    0             0       1
+##   kindle                                                0             0       2
+##   kindle reader                                         0             0       1
+##   legal                                                 0             0       1
+##   music sequencing team                                 0             0       1
+##   outbound                                              0             0       1
+##   payments                                              0             0       1
+##   pvd                                                   0             0       1
+##   pxt                                                   0             0       2
+##   redshift                                              0             0       1
+##   region flex                                           0             0       1
+##   retail                                                0             0       1
+##   scot                                                  0             0       3
+##   secint                                                1             0       0
+##   seller fees sciencs & tech                            0             0       1
+##   serverless compute - ec2                              0             1       0
+##   shopbop                                               0             0       1
+##   sps                                                   0             0       3
+##   transactional services                                0             1       0
+##   wwgs                                                  0             0       1
+##   wwro/salesforce                                       0             0       1
+\end{verbatim}
+
+\hypertarget{offers}{%
+\subsection{Offers}\label{offers}}
+
+\hypertarget{full-time-offers-in-asp}{%
+\subsubsection{Full Time Offers In ASP}\label{full-time-offers-in-asp}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{subset}\NormalTok{(data, (Status }\SpecialCharTok{\%in\%} \FunctionTok{c}\NormalTok{(}\StringTok{"Offer"}\NormalTok{, }\StringTok{"Portal Update"}\NormalTok{)) }\SpecialCharTok{\&}\NormalTok{ Seeking }\SpecialCharTok{==} \StringTok{"Full time"} \SpecialCharTok{\&}\NormalTok{ Portal }\SpecialCharTok{==} \StringTok{"ASP"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##               Timestamp Discord.username   Seeking             Organization
+## 2   11/13/2023 15:58:44     crimsongnome Full time               aws lambda
+## 26   10/5/2023 20:19:10           Baegll Full time                   secint
+## 57   10/6/2023 10:41:09                  Full time                  finance
+## 87   11/9/2023 13:26:57           Skinso Full time                  devices
+## 100 11/13/2023 15:55:36           bmar69 Full time serverless compute - ec2
+## 104 11/13/2023 15:28:21         parthexe Full time             aws payments
+## 105 11/13/2023 15:55:18              : D Full time    aws commerce platform
+## 108 11/13/2023 15:56:01          junniee Full time      aws region services
+## 109 11/13/2023 15:56:30       fatherflex Full time              aws billing
+## 110 11/13/2023 15:57:00          willk07 Full time           amazon connect
+## 112 11/13/2023 15:57:48          zhettsu Full time   transactional services
+## 113 11/13/2023 15:57:54             sg17 Full time               aws braket
+## 115 11/13/2023 16:00:23          cjwagn1 Full time                  aws ec2
+## 116 11/13/2023 16:00:25            lowki Full time                   aws s3
+## 117 11/13/2023 16:04:57           nahuk_ Full time        aws builder tools
+## 118 11/13/2023 16:05:04        murielxun Full time               aws braket
+## 119 11/13/2023 16:05:56    roomiestgrain Full time          aws marketplace
+## 120 11/13/2023 16:06:03    bedrock_titan Full time              aws connect
+## 121 11/13/2023 16:06:46      lingqingran Full time                  aws eks
+##     Intern.Type Start.date  End.date Newsletter        Status Portal
+## 2    First-time  6/12/2023  9/1/2023         No Portal Update    ASP
+## 26    Returning   5/5/2023 8/11/2023         No         Offer    ASP
+## 57    Returning  5/25/2023 8/12/2023        Yes Portal Update    ASP
+## 87    Returning  4/15/2022  8/5/2022         No         Offer    ASP
+## 100  First-time   5/8/2023 8/25/2023        Yes Portal Update    ASP
+## 104  First-time   5/8/2023 8/25/2023        Yes Portal Update    ASP
+## 105  First-time  5/15/2023  8/4/2023        Yes Portal Update    ASP
+## 108  First-time   6/5/2023 8/25/2023        Yes Portal Update    ASP
+## 109   Returning  6/26/2023 9/15/2023         No Portal Update    ASP
+## 110  First-time  5/30/2023 8/18/2023        Yes Portal Update    ASP
+## 112  First-time  1/17/2023 8/18/2023        Yes Portal Update    ASP
+## 113   Returning  5/30/2023 8/18/2023         No Portal Update    ASP
+## 115   Returning  5/29/2023 8/18/2023        Yes Portal Update    ASP
+## 116  First-time  5/22/2023 8/11/2023        Yes Portal Update    ASP
+## 117   Returning  5/22/2023 8/11/2023        Yes Portal Update    ASP
+## 118  First-time  5/22/2023 8/11/2023        Yes Portal Update    ASP
+## 119  First-time  5/22/2023 8/11/2023         No Portal Update    ASP
+## 120  First-time  5/22/2023 8/11/2023        Yes Portal Update    ASP
+## 121  First-time  5/30/2023 8/18/2023        Yes Portal Update    ASP
+\end{verbatim}
+
+\hypertarget{full-time-offers-in-ect}{%
+\subsubsection{Full Time Offers in ECT}\label{full-time-offers-in-ect}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{subset}\NormalTok{(data, Status }\SpecialCharTok{==} \StringTok{"Offer"} \SpecialCharTok{\&}\NormalTok{ Seeking }\SpecialCharTok{==} \StringTok{"Full time"} \SpecialCharTok{\&}\NormalTok{ Portal }\SpecialCharTok{==} \StringTok{"ECT"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##              Timestamp Discord.username   Seeking         Organization
+## 17 11/10/2023 13:04:28       WraithW0lf Full time         aws ec2 core
+## 18  10/5/2023 19:47:37           Red ツ Full time              devices
+## 60 11/10/2023 16:06:10              Han Full time aws - annapurna labs
+## 82  11/9/2023 12:46:00         ana.tole Full time                  gfs
+##    Intern.Type Start.date  End.date Newsletter Status Portal
+## 17  First-time  6/12/2023  9/1/2023        Yes  Offer    ECT
+## 18   Returning  9/11/2024  1/1/2073        Yes  Offer    ECT
+## 60  First-time  5/22/2023 8/11/2023        Yes  Offer    ECT
+## 82  First-time   6/5/2023 8/25/2023        Yes  Offer    ECT
+\end{verbatim}
+
+\hypertarget{intern-offers-in-asp}{%
+\subsubsection{Intern Offers in ASP}\label{intern-offers-in-asp}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{subset}\NormalTok{(data, Status }\SpecialCharTok{==} \StringTok{"Offer"} \SpecialCharTok{\&}\NormalTok{ Seeking }\SpecialCharTok{==} \StringTok{"Internship"} \SpecialCharTok{\&}\NormalTok{ Portal }\SpecialCharTok{==} \StringTok{"ASP"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##              Timestamp Discord.username    Seeking Organization Intern.Type
+## 76  11/9/2023 12:18:21        dr. aight Internship   aws backup   Returning
+## 77 11/10/2023 13:04:05            jonak Internship        alexa   Returning
+## 96 11/10/2023 16:06:32      TrainerNoob Internship         ascs   Returning
+##    Start.date  End.date Newsletter Status Portal
+## 76  5/21/2024 8/11/2024        Yes  Offer    ASP
+## 77  5/15/2023  8/4/2023        Yes  Offer    ASP
+## 96  5/30/2023 8/18/2023         No  Offer    ASP
+\end{verbatim}
+
+\hypertarget{intern-offers-in-ect}{%
+\subsubsection{Intern Offers in ECT}\label{intern-offers-in-ect}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{subset}\NormalTok{(data, Status }\SpecialCharTok{==} \StringTok{"Offer"} \SpecialCharTok{\&}\NormalTok{ Seeking }\SpecialCharTok{==} \StringTok{"Internship"} \SpecialCharTok{\&}\NormalTok{ Portal }\SpecialCharTok{==} \StringTok{"ECT"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  [1] Timestamp        Discord.username Seeking          Organization    
+##  [5] Intern.Type      Start.date       End.date         Newsletter      
+##  [9] Status           Portal          
+## <0 rows> (or 0-length row.names)
+\end{verbatim}
+
+\hypertarget{x-intern-to-ft}{%
+\subsubsection{2x Intern to FT}\label{x-intern-to-ft}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ft }\OtherTok{\textless{}{-}} \FunctionTok{subset}\NormalTok{(data, Seeking }\SpecialCharTok{==} \StringTok{"Full time"}\NormalTok{)}
+\FunctionTok{prop.table}\NormalTok{(}\FunctionTok{table}\NormalTok{(ft}\SpecialCharTok{$}\NormalTok{Intern.Type, ft}\SpecialCharTok{$}\NormalTok{Status), }\AttributeTok{margin =} \DecValTok{1}\NormalTok{) }\SpecialCharTok{*} \DecValTok{100}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##             
+##                  Offer Portal Update   Waiting
+##   First-time  4.109589     16.438356 79.452055
+##   Returning  13.636364     22.727273 63.636364
+\end{verbatim}
+
+\hypertarget{newsletter}{%
+\subsection{Newsletter}\label{newsletter}}
+
+It's fun to speculate.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{table}\NormalTok{(data}\SpecialCharTok{$}\NormalTok{Status, data}\SpecialCharTok{$}\NormalTok{Newsletter)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##                
+##                 No Yes
+##   Offer          3   6
+##   Portal Update  5  13
+##   Waiting       14  71
+\end{verbatim}
+
+\end{document}

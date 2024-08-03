@@ -1,0 +1,92 @@
+---
+title: "Amazon RO Analytics"
+author: "Elias Murcray"
+date: "2023-11-11"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Data Collection
+
+Data was collected via survey on the Amazon Interns and New Grads Discord server. There was an original survey that involved manual entry, which was later merged with the new dataset from Google Forms.
+
+
+```{r}
+data = read.csv("./Amazon RO Analytics - Responses.csv")
+```
+
+## Data Cleaning
+
+Due to the nature of merging two fragmented datasets, we need to clean the data.
+
+
+```{r}
+# Remove Data From Original Form
+data <- subset(data, data$Timestamp != "" & !is.na(data$Timestamp))
+# Trim trailing spaces in status from first input
+data$Status <- trimws(data$Status)
+# Remove participant if no portal specified
+data <- subset(data, data$Portal != "" & !is.na(data$Portal))
+# Clean orgs
+data$Organization = trimws(tolower(data$Organization))
+# Remove the people putting just "AWS"
+data <- subset(data, data$Organization != "aws")
+```
+
+## Offer Frequency
+
+### Based on Portal
+
+```{r}
+table(data$Status, data$Portal)
+```
+### Between Orgs
+
+```{r}
+table(data$Organization, data$Status)
+```
+
+## Offers
+
+### Full Time Offers In ASP
+
+```{r}
+subset(data, (Status %in% c("Offer", "Portal Update")) & Seeking == "Full time" & Portal == "ASP")
+```
+
+### Full Time Offers in ECT
+
+```{r}
+subset(data, Status == "Offer" & Seeking == "Full time" & Portal == "ECT")
+```
+
+### Intern Offers in ASP
+
+```{r}
+subset(data, Status == "Offer" & Seeking == "Internship" & Portal == "ASP")
+```
+
+### Intern Offers in ECT
+
+```{r}
+subset(data, Status == "Offer" & Seeking == "Internship" & Portal == "ECT")
+```
+
+### 2x Intern to FT
+
+```{r}
+ft <- subset(data, Seeking == "Full time")
+prop.table(table(ft$Intern.Type, ft$Status), margin = 1) * 100
+```
+
+## Newsletter
+
+It's fun to speculate.
+
+```{r}
+table(data$Status, data$Newsletter)
+```
+
